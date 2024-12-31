@@ -46,6 +46,7 @@ public class RobotContainer {
   private final SendableChooser<Command> autoChooser;
   
   public RobotContainer() {
+
     // Subsystem init.
     m_drivetrain = Drivetrain.getInstance();
     m_shooter = Shooter.getInstance();
@@ -103,6 +104,8 @@ public class RobotContainer {
 
     SmartDashboard.putData("Auto chooser", autoChooser); 
 
+    // The first argument is the root container is RobotContainer for command based
+    // The second argument is whether logging and config should be given separate tabs
     Logger.configureLoggingAndConfig(this, false);
   }
  
