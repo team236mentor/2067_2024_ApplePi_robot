@@ -12,7 +12,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 import frc.robot.utils.Conversions;
 
 import io.github.oblarg.oblog.Loggable;
@@ -65,8 +65,8 @@ public class Elevator extends SubsystemBase implements Loggable {
   }
 
   private Elevator() {
-    m_leftMotor = new TalonFX(RobotMap.canIDs.Elevator.LEFT);
-    m_rightMotor = new TalonFX(RobotMap.canIDs.Elevator.RIGHT);
+    m_leftMotor = new TalonFX(Constants.canIDs.Elevator.LEFT);
+    m_rightMotor = new TalonFX(Constants.canIDs.Elevator.RIGHT);
     setUpMotor(m_leftMotor, InvertedValue.Clockwise_Positive);
     setUpMotor(m_rightMotor, InvertedValue.CounterClockwise_Positive);
   }

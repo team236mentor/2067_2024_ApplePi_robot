@@ -1,7 +1,7 @@
-package frc.robot.constants;
+package frc.robot;
 
 
-public final class RobotMap {
+public final class Constants {
     public static class canIDs {
         public static class Drivetrain {
             // Follows back left, back right, front left, front right convention.

@@ -17,7 +17,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 
 public class Intake extends SubsystemBase implements Loggable {
     private static Intake instance = null; 
@@ -49,8 +49,8 @@ public class Intake extends SubsystemBase implements Loggable {
     }
 
     private Intake() {
-        m_rightMotor = new TalonFX(RobotMap.canIDs.Intake.RIGHT);
-        m_leftMotor = new TalonFX(RobotMap.canIDs.Intake.LEFT);
+        m_rightMotor = new TalonFX(Constants.canIDs.Intake.RIGHT);
+        m_leftMotor = new TalonFX(Constants.canIDs.Intake.LEFT);
 
         setUpMotor(m_rightMotor, InvertedValue.Clockwise_Positive);
         setUpMotor(m_leftMotor, InvertedValue.CounterClockwise_Positive);

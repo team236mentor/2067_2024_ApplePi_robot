@@ -3,7 +3,7 @@ package frc.robot.subsystems;
 
 import java.util.Optional;
 
-import com.ctre.phoenix.sensors.PigeonIMU;
+import com.ctre.phoenix6.hardware.Pigeon2;
 
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.Nat;
@@ -23,15 +23,13 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-import io.github.oblarg.oblog.Loggable;
-import io.github.oblarg.oblog.annotations.Log;
-
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 import frc.robot.subsystems.swerve.DriveMotor;
 import frc.robot.subsystems.swerve.SwerveModule;
 import frc.robot.utils.Conversions;
 import frc.robot.utils.Utils;
+import io.github.oblarg.oblog.Loggable;
+import io.github.oblarg.oblog.annotations.Log;
 
 
 public class Drivetrain extends SubsystemBase implements Loggable {
@@ -63,7 +61,7 @@ public class Drivetrain extends SubsystemBase implements Loggable {
   private static final Matrix<N3, N1> MULTI_VISION_STDS = new Matrix<>(Nat.N3(), Nat.N1(), new double[] {0.025, 0.025, 0.0125});
 
   private Pose2d m_pose;
-  private final PigeonIMU m_gyro;
+  private final Pigeon2 m_gyro;
   private final Field2d m_field;
 
   private double m_fieldOrientedHeadingOffsetDegrees = 0.0;
@@ -92,7 +90,7 @@ public class Drivetrain extends SubsystemBase implements Loggable {
     }
 
     // Create and reset gyro.
-    m_gyro = new PigeonIMU(RobotMap.canIDs.Drivetrain.GYRO);
+    m_gyro = new Pigeon2(Constants.canIDs.Drivetrain.GYRO);
     m_gyro.setYaw(0.0);
 
     // Odometry.
@@ -231,7 +229,7 @@ public class Drivetrain extends SubsystemBase implements Loggable {
 
   @Log (name="Heading (deg)")
   public double getHeadingDegrees() {
-    return m_gyro.getYaw();
+    return m_gyro.getYaw().getValueAsDouble();
   }
 
   public Pose2d getRobotPose2d() {

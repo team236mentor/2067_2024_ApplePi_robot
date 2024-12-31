@@ -22,8 +22,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import io.github.oblarg.oblog.Loggable;
 // import io.github.oblarg.oblog.annotations.Config;
 import io.github.oblarg.oblog.annotations.Log;
-
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 
 public class Shoulder extends SubsystemBase implements Loggable {
     private static Shoulder instance = null;
@@ -71,7 +70,7 @@ public class Shoulder extends SubsystemBase implements Loggable {
       }
 
     private Shoulder() {
-        m_motor = new TalonFX(RobotMap.canIDs.SHOULDER);
+        m_motor = new TalonFX(Constants.canIDs.SHOULDER);
 
         m_motor.getConfigurator().apply(new TalonFXConfiguration());
         m_motor.setNeutralMode(NeutralModeValue.Brake);
@@ -94,7 +93,7 @@ public class Shoulder extends SubsystemBase implements Loggable {
         m_motor.getConfigurator().apply(PID_GAINS, K_TIMEOUT_MS);
         m_motor.getConfigurator().apply(MOTION_MAGIC_CONFIGS, K_TIMEOUT_MS);
 
-        m_zeroingSensor = new DigitalInput(RobotMap.dios.SHOULDER_ZERO_SENSOR);
+        m_zeroingSensor = new DigitalInput(Constants.dios.SHOULDER_ZERO_SENSOR);
 
         m_autoAimFunc = new InterpolatingDoubleTreeMap();
         for (int i = 0; i < AUTO_AIM_DISTS.length; i++) {

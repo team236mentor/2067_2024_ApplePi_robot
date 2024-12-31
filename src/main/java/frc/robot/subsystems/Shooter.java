@@ -19,8 +19,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import io.github.oblarg.oblog.Loggable;
 // import io.github.oblarg.oblog.annotations.Config;
 import io.github.oblarg.oblog.annotations.Log;
-
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 import frc.robot.utils.Utils;
 
 
@@ -62,8 +61,8 @@ public class Shooter extends SubsystemBase implements Loggable {
     }
 
     private Shooter() {
-        m_topMotor = new TalonFX(RobotMap.canIDs.Shooter.TOP_SHOOTER);
-        m_bottomMotor = new TalonFX(RobotMap.canIDs.Shooter.BOTTOM_SHOOTER);
+        m_topMotor = new TalonFX(Constants.canIDs.Shooter.TOP_SHOOTER);
+        m_bottomMotor = new TalonFX(Constants.canIDs.Shooter.BOTTOM_SHOOTER);
         setupMotor(m_topMotor, InvertedValue.CounterClockwise_Positive);
         setupMotor(m_bottomMotor, InvertedValue.Clockwise_Positive);
     }

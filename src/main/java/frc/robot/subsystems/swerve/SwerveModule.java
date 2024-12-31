@@ -5,8 +5,7 @@ import java.text.DecimalFormat;
 
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 
 
 public class SwerveModule {
@@ -26,10 +25,10 @@ public class SwerveModule {
     public SwerveModule(int location) {
         this.location = location;
 
-        m_driveMotor = new DriveMotor(RobotMap.canIDs.Drivetrain.DRIVE[location]);
+        m_driveMotor = new DriveMotor(Constants.canIDs.Drivetrain.DRIVE[location]);
         m_steerMotor = new SteerMotor(
-            RobotMap.canIDs.Drivetrain.STEER[location],
-            RobotMap.canIDs.Drivetrain.CANCoder[location],
+            Constants.canIDs.Drivetrain.STEER[location],
+            Constants.canIDs.Drivetrain.CANCoder[location],
             STEER_WHEEL_ZERO_OFFSET_DEGREES[location]
         );
     }

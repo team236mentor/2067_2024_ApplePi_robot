@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import frc.robot.constants.RobotMap;
+import frc.robot.Constants;
 import frc.robot.utils.Conversions;
 
 public class Feeder extends SubsystemBase implements Loggable {
@@ -55,9 +55,9 @@ public class Feeder extends SubsystemBase implements Loggable {
   }
 
   private Feeder() {
-    m_gamePieceSensor = new DigitalInput(RobotMap.dios.FEEDER_SENSOR);
+    m_gamePieceSensor = new DigitalInput(Constants.dios.FEEDER_SENSOR);
     
-    m_motor = new TalonFX(RobotMap.canIDs.FEEDER);
+    m_motor = new TalonFX(Constants.canIDs.FEEDER);
     m_motor.getConfigurator().apply(new TalonFXConfiguration());
 
     m_motor.getConfigurator().apply(CURRENT_LIMITS_CONFIGS);
