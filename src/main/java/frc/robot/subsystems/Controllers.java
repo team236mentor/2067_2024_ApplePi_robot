@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-
+import frc.robot.Constants;
 import frc.robot.commands.AutoAimShoulder;
 import frc.robot.commands.FeedShot;
 import frc.robot.commands.PathfindToTrap;
@@ -30,16 +30,12 @@ import frc.robot.commands.SetShooterVelocity;
 import frc.robot.commands.SetShoulderPosition;
 import frc.robot.commands.ShootGamePiece;
 import frc.robot.commands.ZeroShoulder;
-
 import frc.robot.subsystems.Drivetrain.AprilTag;
 
 public class Controllers extends SubsystemBase {
   private static Controllers instance = null;
 
-  private static final int DRIVER_CONTROLLER_PORT = 0;
   private final CommandXboxController m_driverController;
-
-  private static final int OPERATOR_CONTROLLER_PORT = 1;
   private final CommandXboxController m_operatorController;
 
   public static Controllers getInstance() {
@@ -50,8 +46,8 @@ public class Controllers extends SubsystemBase {
   }
 
   private Controllers() {
-    m_driverController = new CommandXboxController(DRIVER_CONTROLLER_PORT);
-    m_operatorController = new CommandXboxController(OPERATOR_CONTROLLER_PORT);
+    m_driverController = new CommandXboxController(Constants.DRIVER_CONTROLLER_PORT);
+    m_operatorController = new CommandXboxController(Constants.OPERATOR_CONTROLLER_PORT);
 
     configDriverBindings();
     configOperatorBindings();
